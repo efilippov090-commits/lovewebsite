@@ -953,10 +953,3 @@ max-width: 500px {
 
     .hero-text {
         font-size: 17px;
-<div class="photo-card">
-    <img src="photo.jpg" alt="Наше воспоминание">
-    <div class="photo-caption">
-        <span>❤️</span>
-        <p>Одно из тех воспоминаний, которые хочется сохранить.</p>
-    </div>
-</div>
