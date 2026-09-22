@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(135deg, #ffdce8, #eadcff);
+
+    color: #4a3040;
+
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 600px;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border-radius: 30px;
+
+    box-shadow: 0 20px 60px rgba(100, 50, 80, 0.2);
+
+    animation: appear 1s ease;
+}
+
+.flower {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 42px;
+    margin: 10px 0 20px;
+    color: #d85b88;
+}
+
+h2 {
+    color: #c64f7c;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-style: italic;
+}
+
+button {
+    margin-top: 25px;
+
+    padding: 16px 28px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: #e96d9a;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.07);
+}
+
+.hidden {
+    display: none;
+}
+
+#message {
+    margin-top: 30px;
+    padding-top: 25px;
+
+    border-top: 1px solid #f0c8d7;
+
+    animation: appear 1s ease;
+}
+
+.big-heart {
+    font-size: 70px;
+
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
