@@ -1,955 +1,370 @@
-/* =========================================
-   ОСНОВНЫЕ НАСТРОЙКИ
-========================================= */
+<!DOCTYPE html>
+<html lang="ru">
 
-* {
-    box-sizing: border-box;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-html {
-    scroll-behavior: smooth;
-}
+    <title>Для тебя ❤️</title>
 
-body {
-    margin: 0;
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    min-height: 100vh;
+<body>
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    <!-- Анимированный фон -->
+    <div class="background">
+        <div class="stars"></div>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
 
-    color: #fff;
+    <!-- Плавающие сердечки -->
+    <div id="floating-hearts"></div>
 
-    background:
-        radial-gradient(
-            circle at 20% 10%,
-            rgba(255, 150, 190, 0.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(170, 130, 255, 0.16),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #180d20,
-            #2b1027,
-            #160d24
-        );
+    <main>
 
-    overflow-x: hidden;
-}
+        <!-- ============================= -->
+        <!-- ПЕРВЫЙ ЭКРАН -->
+        <!-- ============================= -->
 
-/* =========================================
-   ФОН
-========================================= */
+        <section class="hero">
 
-.background {
-    position: fixed;
+            <div class="hero-content">
 
-    inset: 0;
+                <div class="main-heart">
+                    ❤️
+                </div>
 
-    z-index: -10;
+                <div class="eyebrow">
+                    маленькое послание для тебя
+                </div>
 
-    overflow: hidden;
-}
+                <h1>
+                    Есть кое-что,<b
+                   что я хочу тебе сказать
+                </h1>
 
-.stars {
-    position: absolute;
+                <p class="hero-text">
+                    Иногда самые важные слова
+                    сложнее всего сказать вслух.
+                </p>
 
-    inset: -100px;
+                <button class="primary-button"
+                        onclick="startStory()">
 
-    background-image:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,0.8) 1px,
-            transparent 2px
-        );
+                    Начать читать
 
-    background-size: 80px 80px;
+                    <span>↓</span>
 
-    opacity: 0.25;
+                </button>
 
-    animation: moveStars 30s linear infinite;
-}
+                <div class="scroll-hint">
+                    листай вниз
+                </div>
 
-.glow {
-    position: absolute;
+            </div>
 
-    width: 450px;
-    height: 450px;
+        </section>
 
-    border-radius: 50%;
+        <!-- ============================= -->
+        <!-- ИСТОРИЯ -->
+        <!-- ============================= -->
 
-    filter: blur(100px);
+        <section class="story" id="story">
 
-    opacity: 0.18;
-}
+            <div class="section-label">
+                01 — немного от меня
+            </div>
 
-.glow-1 {
-    top: 10%;
-    left: -150px;
+            <h2>
+                Я долго думал,
+                очень старался сделать этот сайт.
+            </h2>
 
-    background: #ff6fa5;
-}
+            <div class="story-text">
 
-.glow-2 {
-    bottom: 5%;
-    right: -150px;
+                <p>
+                    Я думаю тебе это должно очеень сильно понравится,
+                    ты мне сказала делать что то, вот я и решил сделать тебе приятное письмо.
+                    мне кажется это интереснее чем просто цветы.
+                </p>
 
-    background: #9c7cff;
-}
+                <p>
+                    Мне кажется это интереснее чем просто цветы и
+                    пару сообщений в Telegram.
+                </p>
 
-@keyframes moveStars {
+                <p class="highlight">
+                    Мне хотелось сделать что-то,
+                    что останется в твоей памяти немного дольше.
+                </p>
 
-    from {
-        transform: translateY(0);
-    }
+                <p>
+                    Потому что, обычные разговоры уже надоели.
+                </p>
 
-    to {
-        transform: translateY(80px);
-    }
+            </div>
 
-}
+        </section>
 
-/* =========================================
-   ПЛАВАЮЩИЕ СЕРДЦА
-========================================= */
+        <!-- ============================= -->
+        <!-- ФОТО -->
+        <!-- ============================= -->
 
-#floating-hearts {
-    position: fixed;
+        <section class="memory">
 
-    inset: 0;
+            <div class="section-label">
+                02 — одно воспоминание
+            </div>
 
-    pointer-events: none;
+            <div class="photo-card">
 
-    z-index: 20;
-}
+                <div class="photo-card">
+    <img src="photo.jpg" alt="Наше воспоминание">
+    <div class="photo-caption">
+        <span>❤️</span>
+        <p>Одно из тех воспоминаний, которые хочется сохранить.</p>
+    </div>
+</div>
+        </section>
 
-.floating-heart {
-    position: absolute;
+        <!-- ============================= -->
+        <!-- КАРТОЧКИ -->
+        <!-- ============================= -->
 
-    bottom: -50px;
+        <section class="moments">
 
-    animation:
-        floatHeart linear forwards;
+            <div class="section-label">
+                03 — то, что я помню
+            </div>
 
-    opacity: 0;
-}
+            <h2>
+                Иногда именно мелочи
+                остаются в памяти.
+            </h2>
 
-@keyframes floatHeart {
+            <div class="cards">
 
-    0% {
-        transform:
-            translateY(0)
-            rotate(0deg);
+                <div class="moment-card">
 
-        opacity: 0;
-    }
+                    <div class="moment-icon">
+                        🌷
+                    </div>
 
-    10% {
-        opacity: 0.8;
-    }
+                    <h3>
+                        Наши разговоры
+                    </h3>
 
-    90% {
-        opacity: 0.5;
-    }
+                    <p>
+                        Мне всегда очень нравилось
+                         с тобой разговавивать,
+                        ты самый приятный человек 
+                        для беседы которого я знаю,
+                        ведь тебе я могу рассказать все.
+                    </p>
 
-    100% {
-        transform:
-            translateY(-110vh)
-            rotate(360deg);
 
-        opacity: 0;
-    }
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
 
-}
+    <script src="script.js"></script>
 
-/* =========================================
-   ОБЩЕЕ
-========================================= */
+</body>
 
-main {
-    position: relative;
+</html>
 
-    z-index: 1;
-}
 
-section {
-    width: 100%;
+</div>
 
-    max-width: 1100px;
+                <div class="moment-card">
 
-    margin: auto;
+                    <div class="moment-icon">
+                        ✨
+                    </div>
 
-    padding-left: 25px;
-    padding-right: 25px;
-}
+                    <h3>
+                        Наш смех
+                    </h3>
 
-.section-label {
-    margin-bottom: 20px;
+                    <p>
+                        Есть моменты, которые вспоминаешь
+                        и невольно улыбаешься,
+                         обожаю пересматривать
+                         наши старые видео
+                        и фотографии.
+                    </p>
 
-    font-size: 13px;
+                </div>
 
-    letter-spacing: 3px;
+                <div class="moment-card">
 
-    text-transform: uppercase;
+                    <div class="moment-icon">
+                        💗
+                    </div>
 
-    color: #e9a8c2;
+                    <h3>
+                        Ты в моей жизни
+                    </h3>
 
-    opacity: 0.8;
-}
+                    <p>
+                        Иногда нет какой-то одной причины.
+                        Просто человек становится важным
+                        и без него жизнь не кажется
+                        такой счастливой.
+                    </p>
 
-/* =========================================
-   ПЕРВЫЙ ЭКРАН
-========================================= */
+                </div>
 
-.hero {
-    min-height: 100vh;
+            </div>
 
-    display: flex;
+        </section>
 
-    align-items: center;
+        <!-- ============================= -->
+        <!-- СЕКРЕТ -->
+        <!-- ============================= -->
 
-    justify-content: center;
+        <section class="secret">
 
-    text-align: center;
+            <div class="secret-box">
 
-    padding-top: 40px;
-}
+                <div class="secret-icon">
+                    💌
+                </div>
 
-.hero-content {
-    max-width: 800px;
-}
+                <div class="section-label">
+                    04 — маленький секрет
+                </div>
 
-.main-heart {
-    font-size: 100px;
+                <h2>
+                    Здесь есть кое-что,
+                    что я спрятал.
+                </h2>
 
-    margin-bottom: 25px;
+                <p>
+                    Нажми кнопку, если хочешь узнать.
+                </p>
 
-    animation: heartbeat 1.6s infinite;
+                <button class="secret-button"
+                        onclick="openSecret()">
 
-    filter:
-        drop-shadow(
-            0 15px 30px
-            rgba(255, 70, 140, 0.3)
-        );
-}
+                    Открыть послание
 
-@keyframes heartbeat {
+                </button>
 
-    0%,
-    100% {
-        transform: scale(1);
-    }
+                <div id="secret-message"
+                     class="secret-message">
 
-    50% {
-        transform: scale(1.13);
-    }
+                    <div class="secret-heart">
+                        ❤️
+                    </div>
 
-}
+                    <p>
+                        Ты стала для меня намного важнее,
+                        чем я когда-то мог представить.
+                        Я хочу связать с тобой всю свою жизнь,
+                        я обожаю тебя Светуля, ты мой главный
+                        подарок в жизни.
+                    </p>
 
-.eyebrow {
-    font-size: 14px;
+                    <p>
+                        И именно поэтому я решил
+                        сделать всё это.
+                    </p>
 
-    letter-spacing: 4px;
+                </div>
 
-    text-transform: uppercase;
+            </div>
 
-    color: #e7b0c7;
-}
+        </section>
 
-h1 {
-    margin: 25px 0;
+        <!-- ============================= -->
+        <!-- ГЛАВНЫЙ ВОПРОС -->
+        <!-- ============================= -->
 
-    font-size:
-        clamp(45px, 8vw, 85px);
+        <section class="question">
 
-    line-height: 1.02;
+            <div class="question-heart">
+                💗
+            </div>
 
-    font-weight: 700;
+            <div class="section-label">
+                05 — самое главное
+            </div>
 
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #ffd0e1,
-            #fff
-        );
+            <h2>
+                Я хочу попробовать
+                ещё раз.
+            </h2>
 
-    -webkit-background-clip: text;
+            <p class="question-text">
+                Не идеально.
+                Не с обещаниями, что всё сразу станет хорошо.
+                Но обещаю я буду стараться, я не буду повторять
+                своих ошибок.
+            </p>
 
-    background-clip: text;
+            <p class="question-text">
+                Просто поговорить.
+                Услышать друг друга.
+                И понять, что у нас ещё одна глава, что все еще можно исправить,
+                впереди вся жизнь и я надеюсь ты будешь в ней навсегда.
+            </p>
 
-    color: transparent;
-}
+            <div class="choice-buttons">
 
-.hero-text {
-    max-width: 600px;
+                <button class="talk-button"
+                        onclick="chooseTalk()">
 
-    margin: auto;
+                    Давай встречаться ❤️
 
-    font-size: 20px;
+                </button>
 
-    line-height: 1.7;
+                <button class="time-button"
+                        onclick="chooseTime()">
 
-    color: #e8d9e2;
-}
+                    Мне нужно время, я все равно сомневаюсь 🌷
 
-.primary-button {
-    margin-top: 35px;
+                </button>
 
-    padding: 17px 32px;
+            </div>
 
-    border: 1px
+            <div id="choice-result"></div>
 
+        </section>
 
-}
+        <!-- ============================= -->
+        <!-- ФИНАЛ -->
+        <!-- ============================= -->
 
-    .paper {
-        padding: 25px;
-    }
+        <section class="final">
 
-    .secret-box {
-        padding:
-            50px 20px;
-    }
+            <div class="final-symbol">
+                ♡
+            </div>
 
-    .talk-button,
-    .time-button {
-        width: 100%;
-    }
+            <h2>
+                Спасибо,
+                что дочитала.
+            </h2>
 
-}
+            <p>
+                Я не знаю, каким будет продолжение.
+            </p>
 
+            <p>
+                Но я надеюсь, что ты простишь меня
+                и мы начнем новую главу в наших отношениях.
+            </p>
 
-solid
-        rgba(255,255,255,0.2);
+            <div class="signature">
+                От меня — тебе ❤️
+            </div>
 
-    border-radius: 50px;
+        </section>
 
-    background:
-        linear-gradient(
-            135deg,
-            #e76d9b,
-            #c95889
-        );
+</main>
 
-    color: white;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 15px 40px
-        rgba(215,80,130,0.25);
-
-    transition: 0.3s;
-}
-
-.primary-button span {
-    margin-left: 8px;
-}
-
-.primary-button:hover {
-    transform:
-        translateY(-5px)
-        scale(1.04);
-
-    box-shadow:
-        0 20px 50px
-        rgba(215,80,130,0.4);
-}
-
-.scroll-hint {
-    margin-top: 45px;
-
-    font-size: 12px;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    opacity: 0.45;
-}
-
-/* =========================================
-   ИСТОРИЯ
-========================================= */
-
-.story {
-    min-height: 90vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    padding-top: 120px;
-
-    padding-bottom: 120px;
-}
-
-.story h2,
-.moments h2,
-.question h2,
-.final h2 {
-    max-width: 850px;
-
-    margin: 0 0 45px;
-
-    font-size:
-        clamp(35px, 6vw, 65px);
-
-    line-height: 1.1;
-
-    font-weight: 600;
-}
-
-.story-text {
-    max-width: 700px;
-
-    font-size: 20px;
-
-    line-height: 1.9;
-
-    color: #dfd0d9;
-}
-
-.story-text p {
-    margin: 25px 0;
-}
-
-.highlight {
-    padding-left: 25px;
-
-    border-left:
-        3px solid #df6e9b;
-
-    color: #fff;
-
-    font-size: 24px;
-}
-
-/* =========================================
-   ФОТО
-========================================= */
-
-.memory {
-    padding-top: 120px;
-
-    padding-bottom: 120px;
-}
-
-.photo-card {
-    padding: 12px;
-
-    border-radius: 35px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.18),
-            rgba(255,255,255,.03)
-        );
-
-    box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.3);
-}
-
-.photo-placeholder {
-    min-height: 500px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    border-radius: 25px;
-
-    border:
-        1px dashed
-        rgba(255,255,255,.25);
-
-    background:
-        rgba(255,255,255,.04);
-}
-
-.camera-icon {
-    font-size: 80px;
-
-    margin-bottom: 20px;
-}
-
-.photo-placeholder h3 {
-    font-size: 28px;
-
-    margin: 10px 0;
-}
-
-.photo-placeholder p {
-    color: #cdbec7;
-
-    font-size: 17px;
-}
-
-/* =========================================
-   КАРТОЧКИ
-========================================= */
-
-.moments {
-    padding-top: 120px;
-
-    padding-bottom: 120px;
-}
-
-.cards {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.moment-card {
-    padding: 35px;
-
-    min-height: 280px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    border-radius: 25px;
-
-    background:
-        rgba(255,255,255,.05);
-
-    backdrop-filter: blur(15px);
-
-    transition:
-        transform .4s,
-        background .4s;
-}
-
-.moment-card:hover {
-    transform: translateY(-10px);
-
-    background:
-        rgba(255,255,255,.09);
-}
-
-.moment-icon {
-    font-size: 45px;
-
-    margin-bottom: 25px;
-}
-
-.moment-card h3 {
-    font-size: 24px;
-
-    margin: 0 0 15px;
-}
-
-.moment-card p {
-    color: #cdbec7;
-
-    line-height: 1.7;
-}
-
-/* =========================================
-   СЕКРЕТ
-========================================= */
-
-.secret {
-    padding-top: 130px;
-
-    padding-bottom: 130px;
-}
-
-.secret-box {
-    padding: 70px 35px;
-
-    text-align: center;
-
-    border-radius: 35px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(230,100,150,.18),
-            transparent 60%
-        ),
-        rgba(255,255,255,.05);
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-
-    box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.2);
-}
-
-.secret-icon {
-    font-size: 65px;
-
-    margin-bottom: 20px;
-}
-
-.secret-box h2 {
-    max-width: 700px;
-
-    margin: auto;
-
-    font-size:
-        clamp(35px, 6vw, 60px);
-}
-
-.secret-box > p {
-    margin: 25px 0;
-
-    color: #d3c3cc;
-
-    font-size: 18px;
-}
-
-.secret-button {
-    margin-top: 15px;
-
-
-padding: 15px 28px;
-
-    border-radius: 50px;
-
-    background: transparent;
-
-    color: #fff;
-
-    border:
-        1px solid
-        rgba(255,255,255,.25);
-
-    cursor: pointer;
-
-    font-size: 16px;
-
-    transition: .3s;
-}
-
-.secret-button:hover {
-    background:
-        rgba(255,255,255,.1);
-
-    transform: scale(1.04);
-}
-
-.secret-message {
-    max-width: 600px;
-
-    margin: 35px auto 0;
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    background:
-        rgba(0,0,0,.15);
-
-    display: none;
-
-    animation: appear .8s ease;
-}
-
-.secret-message.visible {
-    display: block;
-}
-
-.secret-heart {
-    font-size: 55px;
-
-    animation: heartbeat 1.4s infinite;
-}
-
-.secret-message p {
-    font-size: 19px;
-
-    line-height: 1.7;
-
-    color: #eadde4;
-}
-
-/* =========================================
-   ГЛАВНЫЙ ВОПРОС
-========================================= */
-
-.question {
-    min-height: 90vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: flex-start;
-
-    padding-top: 150px;
-
-    padding-bottom: 150px;
-}
-
-.question-heart {
-    font-size: 80px;
-
-    animation: heartbeat 1.5s infinite;
-}
-
-.question h2 {
-    margin-top: 25px;
-}
-
-.question-text {
-    max-width: 700px;
-
-    font-size: 20px;
-
-    line-height: 1.8;
-
-    color: #d9cbd3;
-}
-
-.choice-buttons {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 15px;
-
-    margin-top: 30px;
-}
-
-.talk-button,
-.time-button {
-    padding: 17px 27px;
-
-    border-radius: 50px;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.talk-button {
-    background: #df6796;
-
-    color: white;
-
-    box-shadow:
-        0 10px 30px
-        rgba(220,80,130,.2);
-}
-
-.time-button {
-    background: transparent;
-
-    color: #e9d8e2;
-
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-}
-
-.talk-button:hover,
-.time-button:hover {
-    transform: translateY(-4px);
-}
-
-#choice-result {
-    width: 100%;
-
-    max-width: 650px;
-
-    margin-top: 30px;
-
-    padding: 30px;
-
-    border-radius: 25px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    display: none;
-
-    animation: appear .7s ease;
-}
-
-#choice-result.visible {
-    display: block;
-}
-
-#choice-result h3 {
-    color: #f2a8c5;
-
-    font-size: 25px;
-}
-
-#choice-result p {
-    color: #d9cbd3;
-
-    font-size: 18px;
-
-    line-height: 1.7;
-}
-
-/* =========================================
-   ФИНАЛ
-========================================= */
-
-.final {
-    min-height: 80vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    padding-bottom: 150px;
-}
-
-.final-symbol {
-    font-size: 100px;
-
-    color: #ed86ad;
-
-    animation:
-        finalPulse 2s infinite;
-}
-
-.final h2 {
-    margin-bottom: 25px;
-}
-
-.final p {
-    max-width: 600px;
-
-    color: #cfc0ca;
-
-    font-size: 19px;
-
-    line-height: 1.8;
-}
-
-.signature {
-    margin-top: 40px;
-
-    font-size: 24px;
-
-    font-style: italic;
-
-    color: #efa0bd;
-}
-
-@keyframes finalPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.08);
-    }
-
-}
-
-/* =========================================
-   ПОЯВЛЕНИЕ
-========================================= */
-
-@keyframes appear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-/* =========================================
-   ТЕЛЕФОН
-========================================= */
-
-max-width: 800px {
-
-    section {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .moment-card {
-        min-height: auto;
-    }
-
-    .photo-placeholder {
-        min-height: 350px;
-    }
-
-    .question {
-        align-items: center;
-
-        text-align: center;
-    }
-
-    .choice-buttons {
-        justify-content: center;
-    }
-
-}
-
-max-width: 500px {
-
-    .main-heart {
-        font-size: 75px;
-    }
-
-    .hero-text {
-        font-size: 17px;
+<script src="script.js"></script>
+</body>
+</html>
