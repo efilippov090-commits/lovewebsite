@@ -1,127 +1,368 @@
-* {
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ru">
 
-body {
-    margin: 0;
-    min-height: 100vh;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    <title>Для тебя ❤️</title>
 
-    font-family: Arial, sans-serif;
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    background: linear-gradient(135deg, #ffdce8, #eadcff);
+<body>
 
-    color: #4a3040;
+    <!-- Анимированный фон -->
+    <div class="background">
+        <div class="stars"></div>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
 
-    padding: 20px;
-}
+    <!-- Плавающие сердечки -->
+    <div id="floating-hearts"></div>
 
-.card {
-    width: 100%;
-    max-width: 600px;
+    <main>
 
-    padding: 45px 35px;
+        <!-- ============================= -->
+        <!-- ПЕРВЫЙ ЭКРАН -->
+        <!-- ============================= -->
 
-    text-align: center;
+        <section class="hero">
 
-    background: rgba(255, 255, 255, 0.92);
+            <div class="hero-content">
 
-    border-radius: 30px;
+                <div class="main-heart">
+                    ❤️
+                </div>
 
-    box-shadow: 0 20px 60px rgba(100, 50, 80, 0.2);
+                <div class="eyebrow">
+                    маленькое послание для тебя
+                </div>
 
-    animation: appear 1s ease;
-}
+                <h1>
+                    Есть кое-что,<b
+                   что я хочу тебе сказать
+                </h1>
 
-.flower {
-    font-size: 60px;
-    margin-bottom: 10px;
-}
+                <p class="hero-text">
+                    Иногда самые важные слова
+                    сложнее всего сказать вслух.
+                </p>
 
-h1 {
-    font-size: 42px;
-    margin: 10px 0 20px;
-    color: #d85b88;
-}
+                <button class="primary-button"
+                        onclick="startStory()">
 
-h2 {
-    color: #c64f7c;
-    margin-top: 30px;
-}
+                    Начать читать
 
-p {
-    font-size: 18px;
-    line-height: 1.7;
-}
+                    <span>↓</span>
 
-.subtitle {
-    font-size: 20px;
-    font-style: italic;
-}
+                </button>
 
-button {
-    margin-top: 25px;
+                <div class="scroll-hint">
+                    листай вниз
+                </div>
 
-    padding: 16px 28px;
+            </div>
 
-    border: none;
-    border-radius: 50px;
+        </section>
 
-    background: #e96d9a;
-    color: white;
+        <!-- ============================= -->
+        <!-- ИСТОРИЯ -->
+        <!-- ============================= -->
 
-    font-size: 17px;
-    font-weight: bold;
+        <section class="story" id="story">
 
-    cursor: pointer;
+            <div class="section-label">
+                01 — немного от меня
+            </div>
 
-    transition: 0.3s;
-}
+            <h2>
+                Я долго думал,
+                очень старался сделать этот сайт.
+            </h2>
 
-button:hover {
-    transform: scale(1.07);
-}
+            <div class="story-text">
 
-.hidden {
-    display: none;
-}
+                <p>
+                    Я думаю тебе это должно очеень сильно понравится,
+                    ты мне сказала делать что то, вот я и решил сделать тебе приятное письмо.
+                    мне кажется это интереснее чем просто цветы.
+                </p>
 
-#message {
-    margin-top: 30px;
-    padding-top: 25px;
+                <p>
+                    Мне кажется это интереснее чем просто цветы и
+                    пару сообщений в Telegram.
+                </p>
 
-    border-top: 1px solid #f0c8d7;
+                <p class="highlight">
+                    Мне хотелось сделать что-то,
+                    что останется в твоей памяти немного дольше.
+                </p>
 
-    animation: appear 1s ease;
-}
+                <p>
+                    Потому что, обычные разговоры уже надоели.
+                </p>
 
-.big-heart {
-    font-size: 70px;
+            </div>
 
-    animation: heartbeat 1s infinite;
-}
+        </section>
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
+        <!-- ============================= -->
+        <!-- ФОТО -->
+        <!-- ============================= -->
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        <section class="memory">
 
-@keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1);
-    }
+            <div class="section-label">
+                02 — одно воспоминание
+            </div>
 
-    50% {
-        transform: scale(1.2);
-    }
-}
+            <div class="photo-card">
+
+                <div class="photo-card">
+    <img src="photo.jpg" alt="Наше воспоминание">
+    <div class="photo-caption">
+        <span>❤️</span>
+        <p>Одно из тех воспоминаний, которые хочется сохранить.</p>
+    </div>
+</div>
+        </section>
+
+        <!-- ============================= -->
+        <!-- КАРТОЧКИ -->
+        <!-- ============================= -->
+
+        <section class="moments">
+
+            <div class="section-label">
+                03 — то, что я помню
+            </div>
+
+            <h2>
+                Иногда именно мелочи
+                остаются в памяти.
+            </h2>
+
+            <div class="cards">
+
+                <div class="moment-card">
+
+                    <div class="moment-icon">
+                        🌷
+                    </div>
+
+                    <h3>
+                        Наши разговоры
+                    </h3>
+
+                    <p>
+                        Мне всегда очень нравилось
+                         с тобой разговавивать,
+                        ты самый приятный человек 
+                        для беседы которого я знаю,
+                        ведь тебе я могу рассказать все.
+                    </p>
+
+
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+</div>
+
+                <div class="moment-card">
+
+                    <div class="moment-icon">
+                        ✨
+                    </div>
+
+                    <h3>
+                        Наш смех
+                    </h3>
+
+                    <p>
+                        Есть моменты, которые вспоминаешь
+                        и невольно улыбаешься,
+                         обожаю пересматривать
+                         наши старые видео
+                        и фотографии.
+                    </p>
+
+                </div>
+
+                <div class="moment-card">
+
+                    <div class="moment-icon">
+                        💗
+                    </div>
+
+                    <h3>
+                        Ты в моей жизни
+                    </h3>
+
+                    <p>
+                        Иногда нет какой-то одной причины.
+                        Просто человек становится важным
+                        и без него жизнь не кажется
+                        такой счастливой.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============================= -->
+        <!-- СЕКРЕТ -->
+        <!-- ============================= -->
+
+        <section class="secret">
+
+            <div class="secret-box">
+
+                <div class="secret-icon">
+                    💌
+                </div>
+
+                <div class="section-label">
+                    04 — маленький секрет
+                </div>
+
+                <h2>
+                    Здесь есть кое-что,
+                    что я спрятал.
+                </h2>
+
+                <p>
+                    Нажми кнопку, если хочешь узнать.
+                </p>
+
+                <button class="secret-button"
+                        onclick="openSecret()">
+
+                    Открыть послание
+
+                </button>
+
+                <div id="secret-message"
+                     class="secret-message">
+
+                    <div class="secret-heart">
+                        ❤️
+                    </div>
+
+                    <p>
+                        Ты стала для меня намного важнее,
+                        чем я когда-то мог представить.
+                        Я хочу связать с тобой всю свою жизнь,
+                        я обожаю тебя Светуля, ты мой главный
+                        подарок в жизни.
+                    </p>
+
+                    <p>
+                        И именно поэтому я решил
+                        сделать всё это.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============================= -->
+        <!-- ГЛАВНЫЙ ВОПРОС -->
+        <!-- ============================= -->
+
+        <section class="question">
+
+            <div class="question-heart">
+                💗
+            </div>
+
+            <div class="section-label">
+                05 — самое главное
+            </div>
+
+            <h2>
+                Я хочу попробовать
+                ещё раз.
+            </h2>
+
+            <p class="question-text">
+                Не идеально.
+                Не с обещаниями, что всё сразу станет хорошо.
+                Но обещаю я буду стараться, я не буду повторять
+                своих ошибок.
+            </p>
+
+            <p class="question-text">
+                Просто поговорить.
+                Услышать друг друга.
+                И понять, что у нас ещё одна глава, что все еще можно исправить,
+                впереди вся жизнь и я надеюсь ты будешь в ней навсегда.
+            </p>
+
+            <div class="choice-buttons">
+
+                <button class="talk-button"
+                        onclick="chooseTalk()">
+
+                    Давай встречаться ❤️
+
+                </button>
+
+                <button class="time-button"
+                        onclick="chooseTime()">
+
+                    Мне нужно время, я все равно сомневаюсь 🌷
+
+                </button>
+
+            </div>
+
+            <div id="choice-result"></div>
+
+        </section>
+
+        <!-- ============================= -->
+        <!-- ФИНАЛ -->
+        <!-- ============================= -->
+
+        <section class="final">
+
+            <div class="final-symbol">
+                ♡
+            </div>
+
+            <h2>
+                Спасибо,
+                что дочитала.
+            </h2>
+
+            <p>
+                Я не знаю, каким будет продолжение.
+            </p>
+
+            <p>
+                Но я надеюсь, что ты простишь меня
+                и мы начнем новую главу в наших отношениях.
+            </p>
+
+            <div class="signature">
+                От меня — тебе ❤️
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =======================
